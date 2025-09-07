@@ -1,63 +1,90 @@
 .homepage {
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    background: linear-gradient(to right, #74ebd5, #acb6e5);
-    color: #fff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  min-height: 100vh;
+  display: flex;              /* <-- flex container */
+  justify-content: center;    /* <-- center horizontally */
+  align-items: center;        /* <-- center vertically */
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  font-family: "Segoe UI", sans-serif;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;                   /* shorthand for top/right/bottom/left: 0 */
+  background: rgba(15, 15, 15, 0.5);
+  z-index: 1;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  color: #fff;
+  max-width: 700px;
+  width: 90%;
+  padding: 3rem 2rem;
+  animation: fadeInUp 1s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.brand {
+  color: #ffd369;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #f1f1f1;
+}
+
+.features {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.btn {
+  border-radius: 30px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.btn-outline-light {
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.btn-outline-light:hover {
+  background: #fff;
+  color: #333;
+  transform: translateY(-2px);
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
   }
-  
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.4);
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
-  
-  .content {
-    position: relative;
-    z-index: 2;
-    max-width: 700px;
-    padding: 20px;
-  }
-  
-  .title {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-  }
-  
-  .subtitle {
-    font-size: 1.2rem;
-    line-height: 1.6;
-  }
-  
-  .features {
-    margin-top: 20px;
-    font-size: 1.1rem;
-    text-align: left;
-  }
-  .features p {
-    margin: 5px 0;
-    padding-left: 20px;
-    position: relative;
-  }
-  .features p::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: #ffd700;
-    font-size: 1.2rem;
-  }
-  
-  .btn {
-    font-size: 1.1rem;
-    border-radius: 8px;
-    transition: transform 0.2s ease;
-  }
-  .btn:hover {
-    transform: scale(1.05);
-  }
-  
+}
